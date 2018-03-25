@@ -1758,6 +1758,14 @@ pub mod types {
 
     #[derive(Debug, Clone)]
     #[repr(C)]
+    pub struct PipelineRasterizationStateRasterizationOrderAMD {
+        pub s_type: StructureType,
+        pub p_next: *const c_void,
+        pub rasterization_order: RasterizationOrderAMD
+    }
+
+    #[derive(Debug, Clone)]
+    #[repr(C)]
     pub struct PipelineMultisampleStateCreateInfo {
         pub s_type: StructureType,
         pub p_next: *const c_void,
@@ -2619,6 +2627,13 @@ pub mod types {
 
     #[repr(C)]
     #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
+    pub enum RasterizationOrderAMD {
+        Strict = 0,
+        Relaxed = 1
+    }
+
+    #[repr(C)]
+    #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
     pub enum StructureType {
         ApplicationInfo = 0,
         InstanceCreateInfo = 1,
@@ -2683,6 +2698,7 @@ pub mod types {
         DebugMarkerObjectNameInfoEXT = 1000022000,
         DebugMarkerMarkerInfoEXT = 1000022002,
         DebugReportCallbackCreateInfoExt = 1000011000,
+        PipelineRasterizationStateRasterizationOrderAMD = 1000018000,
         IOSSurfaceCreateInfoMvk = 1000122000,
         MacOSSurfaceCreateInfoMvk = 1000123000,
     }
